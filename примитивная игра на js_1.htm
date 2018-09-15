@@ -1,0 +1,58 @@
+<style>
+	body{font-family: monospace;}
+</style>
+<script>
+// forbidden - perimeter  запретить ставить по периметру
+//если поставил число больше чем есть надо предупредить что такое невозможно
+//указать место пересечения где поставил
+var c = prompt("col?");
+var r = prompt("row?");
+			////////START////////////
+			var row = 1;
+
+   if (c >= 10 && r >= 10) {
+            alert("вы ввели недопустимое количество :)");
+        }
+
+	while (row <= 11) {
+			/////////START///////////
+			var col = 1;
+			while(col <= 10){
+				if(row == r && col == c && c < 10 && r < 10 ){
+					document.write("  &#10016;");
+				}
+
+        else if (row < 10 && col == c && !(row == 1 || row == 10 || col == 1 || col == 10) ) {
+          document.write("|");
+        }
+
+        else if (col < 10 && row == r && !(row == 1 || row == 10 || col == 1 || col == 10)) {
+            document.write(" --");
+        }
+
+			if(row == 1 || row == 10 || col ==  1 && !(row == 11 ) || col == 10 && !(row == 11 ) ){
+			document.write("&#127876; ");
+		}
+
+    else{
+
+			if(row == 11 || col == 1 ){
+				document.write("&nbsp; " + col );
+			}
+
+
+
+			else{
+        if (!(row < 10 && col == c || col < 10 && row == r)) {
+            document.write("...");
+        }
+      }
+			}
+			col++;
+		}
+			/////////FINISH///////////
+			document.write(row + "<br />");
+			row++;
+		}
+			/////////FINISH///////////
+</script>
